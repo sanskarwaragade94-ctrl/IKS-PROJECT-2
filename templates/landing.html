@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% block title %}Indian Binary Mathematics{% endblock %}
+{% block content %}
+<section class="container landing-page">
+  <section class="glass-card landing-hero">
+    <p class="eyebrow">Ancient Indian Knowledge</p>
+    <h1>INDIAN BINARY MATHEMATICS</h1>
+    <p class="lead">let's dive into the world of indian binary mathematics</p>
+  </section>
+
+  <section class="landing-grid">
+    <article class="glass-card info-card info-card-wide">
+      <p class="eyebrow">1. Acharya Pingala</p>
+      <h2>Acharya Pingla Rishi</h2>
+      <p class="muted">
+        Acharya Pingala (c. 3rd-2nd century BCE) was an ancient Indian mathematician and grammarian.
+        He is the author of the <em>Chandah-shastra</em>, the earliest known Sanskrit treatise on
+        prosody, the study of poetic meters.
+      </p>
+      <p class="muted">
+        The binary connection appears in Pingala's work on combinations of light (Laghu) and heavy
+        (Guru) syllables. To map every possible rhythmic pattern, he developed a system that is
+        functionally equivalent to the modern binary numeral system.
+      </p>
+      <p class="muted">
+        He was the first to describe the mathematical properties of <code>2^n</code> combinations.
+        His work also laid the groundwork for what we now compare with Pascal's Triangle, known in
+        India as <em>Meru Prastara</em>, to calculate combinations of meters.
+      </p>
+      <p class="muted">
+        While modern binary uses <code>0</code> and <code>1</code>, Pingala used <code>L</code>
+        (Laghu) and <code>G</code> (Guru). His work proves that the concept of mapping a sequence
+        of two states to represent numerical values was understood in India millennia ago.
+      </p>
+    </article>
+
+    <article class="glass-card info-card">
+      <p class="eyebrow">2. Nasta Algorithm</p>
+      <h2>Row number to binary sequence</h2>
+      <p class="muted">
+        The Nasta (or Nashta) algorithm, found in Pingala's ancient Indian text
+        <em>Chandah-shastra</em> (c. 3rd century BC), is a method to determine the specific binary
+        sequence corresponding to a particular row number in a combinations table.
+      </p>
+      <div class="info-points">
+        <p><strong>Purpose:</strong> It reverses the process of finding the position of a pattern and identifies the pattern itself from the row number.</p>
+        <p><strong>Process:</strong> Start with the desired row number and divide the number by 2.</p>
+        <p><strong>If divisible:</strong> place <code>1</code> representing laghu.</p>
+        <p><strong>If not divisible:</strong> place <code>0</code> representing guru, add 1 to the number, and then divide by 2.</p>
+        <p><strong>Iteration:</strong> Repeat the division process with the quotient until the binary sequence of the required length is obtained.</p>
+        <p><strong>Significance:</strong> This demonstrates an early understanding of binary numbers and combinatorial mathematics to calculate combinations of long and short syllables.</p>
+      </div>
+    </article>
+
+    <article class="glass-card info-card">
+      <p class="eyebrow">3. Uddishta Algorithm</p>
+      <h2>Binary sequence to row number</h2>
+      <p class="muted">
+        Uddishta is an ancient Indian algorithmic method, formulated by Acharya Pingala
+        (c. 3rd-2nd century BCE) in his <em>Chandah-shastra</em>, to determine the specific
+        position or row number of a given binary sequence within a <em>prastara</em>. It is the
+        reverse process of Nasta, which finds the sequence from a row number.
+      </p>
+      <div class="info-points">
+        <p><strong>Context:</strong> Used in Vedic mathematics and Sanskrit prosody using binary principles where Laghu is <code>0</code> and Guru is <code>1</code>.</p>
+        <p><strong>Start:</strong> Begin with <code>1</code>.</p>
+        <p><strong>Scan:</strong> Scan the sequence from right to left.</p>
+        <p><strong>Operation:</strong> For each digit, if the digit is <code>1</code>, multiply the current value by 2; if it is <code>0</code>, multiply by 2 and subtract 1 in the traditional interpretation.</p>
+        <p><strong>Example:</strong> For <code>1011</code>, the algorithm builds the final position step by step from the rightmost digit to the left.</p>
+        <p><strong>Significance:</strong> It demonstrates advanced understanding of binary mathematics and combinations by ancient Indian mathematicians long before modern computing.</p>
+      </div>
+    </article>
+  </section>
+
+  <section class="landing-cta">
+    <a href="{{ url_for('home') }}" class="button button-primary landing-button">Nasta and Uddista Calculation</a>
+  </section>
+</section>
+{% endblock %}

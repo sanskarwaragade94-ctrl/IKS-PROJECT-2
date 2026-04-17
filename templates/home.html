@@ -1,0 +1,131 @@
+{% extends "base.html" %}
+{% block title %}Dashboard | Pingala Mathematics{% endblock %}
+{% block content %}
+<section class="dashboard container">
+  <section class="hero-panel glass-card hero-panel-expanded">
+    <div class="hero-copy">
+      <p class="eyebrow">Open Access</p>
+      <h1>Pingala Mathematics Studio</h1>
+      <p class="lead">
+        Explore the ancient Indian binary system through modern computation. Convert numbers
+        using Nasta and Uddishta, analyze palindromes, decode word patterns, and test your
+        knowledge - all in one intelligent workspace.
+      </p>
+      <div class="hero-actions">
+        <a href="#modules" class="button button-primary">Start Calculations</a>
+        <button class="button button-secondary" type="button" onclick="scrollToQuiz()">Jump to Quiz</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="overview-grid">
+    <article class="glass-card overview-card">
+      <p class="eyebrow">What this site does</p>
+      <h2>All-in-One Pingala Calculator</h2>
+      <p class="muted">
+        This platform brings together all core Pingala mathematics operations in one place.
+        Perform binary conversions, reverse calculations, palindrome checks, and linguistic
+        pattern analysis using a real backend system - not just static results.
+      </p>
+      <div class="feature-strip">
+        <span>Integer to binary</span>
+        <span>Binary to row</span>
+        <span>Palindrome checks</span>
+        <span>Word analysis</span>
+        <span>Quiz scoring</span>
+      </div>
+    </article>
+
+    <section class="glass-card result-card result-card-wide">
+      <div class="panel-heading">
+        <div>
+          <p class="eyebrow">Live Response</p>
+          <h2>Backend output</h2>
+        </div>
+        <div class="result-actions">
+          <span class="status-pill">Connected</span>
+          <button class="button button-secondary compact" type="button" onclick="clearResult()">Clear</button>
+        </div>
+      </div>
+      <p class="muted">Use any module below and the response from your Flask backend will appear here.</p>
+      <div id="result" class="result-box">
+        Choose a module below to see the response from the backend.
+      </div>
+      <div class="quick-examples">
+        <button class="chip-button" type="button" onclick="setToolInput('nastaInput', '13')">Try 13</button>
+        <button class="chip-button" type="button" onclick="setToolInput('uddishtaInput', '1011')">Try 1011</button>
+        <button class="chip-button" type="button" onclick="setToolInput('palindromeInput', 'madam')">Try madam</button>
+        <button class="chip-button" type="button" onclick="setToolInput('wordInput', 'Pingala')">Try Pingala</button>
+      </div>
+    </section>
+  </section>
+
+  <section id="modules" class="tools-grid tools-grid-rich">
+    <article class="glass-card tool-card">
+      <p class="tool-number">01</p>
+      <h3>Integer to Binary Sequence</h3>
+      <p class="muted">Run the Nasta logic on a non-negative integer and view the resulting Pingala binary pattern.</p>
+      <label>
+        Enter an integer
+        <input type="text" id="nastaInput" placeholder="Example: 13">
+      </label>
+      <button class="button button-primary full-width" type="button" onclick="runNasta()">Convert with Nasta</button>
+    </article>
+
+    <article class="glass-card tool-card">
+      <p class="tool-number">02</p>
+      <h3>Binary Sequence to Integer</h3>
+      <p class="muted">Use Uddishta to convert a binary sequence of 0s and 1s back into its row number.</p>
+      <label>
+        Enter binary
+        <input type="text" id="uddishtaInput" placeholder="Example: 1011">
+      </label>
+      <button class="button button-primary full-width" type="button" onclick="runUddishta()">Convert with Uddishta</button>
+    </article>
+
+    <article class="glass-card tool-card">
+      <p class="tool-number">03</p>
+      <h3>Palindrome Check</h3>
+      <p class="muted">Check whether your number, binary input, or word reads the same forwards and backwards.</p>
+      <label>
+        Enter any value
+        <input type="text" id="palindromeInput" placeholder="Example: madam or 1221">
+      </label>
+      <button class="button button-primary full-width" type="button" onclick="checkPalindrome()">Check Palindrome</button>
+    </article>
+
+    <article class="glass-card tool-card">
+      <p class="tool-number">04</p>
+      <h3>Word to L/G Binary</h3>
+      <p class="muted">Convert a word into a vowel-consonant binary signature and test both the word and pattern for symmetry.</p>
+      <label>
+        Enter a word
+        <input type="text" id="wordInput" placeholder="Example: Pingala">
+      </label>
+      <button class="button button-primary full-width" type="button" onclick="wordCheck()">Analyze Word</button>
+    </article>
+
+    <article id="quiz-panel" class="glass-card tool-card quiz-card">
+      <p class="tool-number">05</p>
+      <h3>Brainstorming Quiz</h3>
+      <p class="muted">Load five quiz questions, choose an answer button for each question, and submit to review your score with the correct answers.</p>
+      <div id="quizQuestions" class="quiz-box">
+        Click Start Quiz to load the questions from the backend.
+      </div>
+      <div class="tool-actions">
+        <button class="button button-primary" type="button" onclick="loadQuiz()">Start Quiz</button>
+        <button class="button button-secondary" type="button" onclick="submitQuiz()">Submit Quiz</button>
+      </div>
+    </article>
+
+    <article class="glass-card tool-card quiz-results-card">
+      <p class="tool-number">06</p>
+      <h3>Your Test Score</h3>
+      <p class="muted">This section shows your total score and the correct answer for every question, whether your choice was right or wrong.</p>
+      <div id="quizResults" class="quiz-results-box">
+        Submit the Brainstorming Quiz to see your score and answer review here.
+      </div>
+    </article>
+  </section>
+</section>
+{% endblock %}

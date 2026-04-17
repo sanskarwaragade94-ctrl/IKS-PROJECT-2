@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Pingala Mathematics{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <div class="background-orb background-orb-one"></div>
+  <div class="background-orb background-orb-two"></div>
+  <div class="background-grid"></div>
+
+  <header class="site-header">
+    <div class="container nav">
+      <a href="{{ url_for('landing') }}" class="brand">Pingala Mathematics</a>
+      <nav class="nav-links">
+        <a href="{{ url_for('landing') }}">Home</a>
+        <a href="{{ url_for('home') }}">Calculator</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-shell">
+    {% block content %}{% endblock %}
+  </main>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

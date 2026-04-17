@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Page Not Found{% endblock %}
+{% block content %}
+<section class="container not-found">
+  <div class="glass-card not-found-card">
+    <p class="eyebrow">404 Error</p>
+    <h1>Page not found</h1>
+    <p class="lead">The page you requested does not exist. Return to the Pingala homepage and continue from there.</p>
+    <a href="{{ url_for('home') }}" class="button button-primary">Go to Homepage</a>
+  </div>
+</section>
+{% endblock %}
